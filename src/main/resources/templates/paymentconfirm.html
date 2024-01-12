@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirmation de Paiement</title>
+</head>
+<body>
+    <div>
+        <h1>Confirmation de Paiement</h1>
+        <!--<p th:text="${message}">-->
+			<!--On vous attends du : <span th:text="${reservation.status}"></span> 
+			au : <span th:text="${reservation.dateFin}"></span>
+			<p th:text="'On vous attend du ' + ${#dates.format(reservation.dateDebut, 'dd/MM/yyyy')} + ' au ' + ${#dates.format(reservation.dateFin, 'dd/MM/yyyy')}" />-->
+<p> On vous attends du :
+ Date de Début: <span th:text="${dateDebut}"></span></p>
+	<p>Date de Fin: <span th:text="${dateFin}"></span></p>	
+		</p>
+		<!-- <p>Numéro de Réservation : <span th:text="${#numbers.formatInteger(reservation.id)}"></span></p> -->
+        <!--<p>Numéro de Réservation : <span th:text="${reservation.id}"></span></p>-->
+        
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>confirmation html</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+</head>
+<body> 
+  <div>
+    <p>Services: <span th:text="${site.services}"></span></p>
+    <p th:if="${site != null}">Numéro: <span th:text="${site.numero}"></span></p>   
+    <p th:if="${site != null}">Services: <span th:text="${site.services}"></span></p>
+    <p>Date de Début: <span th:text="${dateDebut}"></span></p>
+	<p>Date de Fin: <span th:text="${dateFin}"></span></p>	
+	<p>Nombre de Nuits: <span th:text="${nombreDeNuits}"></span></p>
+	<p>Prix Total: <span th:text="${prixTotal}"></span></p>	
+  </div>
+  
+   <div>
+        <h1>Paiement</h1>
+        <form th:action="@{/processpayment}" method="post">
+			  <!-- Champ caché pour le reservationId -->
+			<input type="hidden" name="reservationId" th:value="${reservation.id}" />
+		    <input type="hidden" name="siteId" th:value="${reservation.id}" />
+            <!--
+            <input type="text" name="reservationId" th:value="${reservation.id}" />
+            <input type="text" name="siteId" th:value="${reservation.id}" />
+ -->
+           
+           <!--  <input type="hidden" name="reservationId" th:value="${#numbers.formatInteger(reservation.id)}" />
+           <input type="hidden" name="reservationId" th:value="${reservation.id}" />-->
+           
+            <label for="montant">Montant à payer:</label>
+            <input type="text" id="montant" name="montant" th:value="${prixTotal}" readonly>
+   
+           <!-- <input type="text" id="montant" name="montant" th:value="${reservation.prixTotal}" readonly>-->
+         
+            <label for="nomCarte">Nom sur la carte:</label>
+            <input type="text" id="nomCarte" name="nomCarte" required>
+        
+            <label for="numCarte">Numéro de la carte:</label>
+            <input type="text" id="numCarte" name="numCarte" required>
+       
+            <label for="dateExpiration">Date d'expiration:</label>
+            <input type="month" id="dateExpiration" name="dateExpiration" required>
+      
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" required>
+      
+            <button type="submit">Payer</button>
+        </form>
+    </div>
+</body>
+</html> 

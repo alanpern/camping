@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des Sites de Camping</title>
+    <!-- Inclure ici les liens vers les CSS si nécessaire -->
+</head>
+<body>
+    <h1>Liste des Sites de Camping</h1>
+
+    <!-- Vérifie si la liste des sites est non vide -->
+    <div th:if="${not #lists.isEmpty(sites)}">
+        <table>
+            <thead>
+                <tr>
+                    <th>Numéro</th>
+                    <th>Nom</th>
+                    <th>Description</th>
+                    <th>Capacité</th>
+                    <th>Prix par Nuit</th>
+                    <!-- Ajouter d'autres en-têtes de colonne si nécessaire -->
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Boucle sur chaque site -->
+                <tr th:each="site : ${sites}">
+                    <td th:text="${site.numero}">Numéro</td>
+                    <td th:text="${site.nom}">Nom</td>
+                    <td th:text="${site.description}">Description</td>
+                    <td th:text="${site.capacite}">Capacité</td>
+                    <td th:text="${site.prixParNuit}">Prix par Nuit</td>
+                    <!-- Ajouter d'autres cellules si nécessaire -->
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Message si la liste des sites est vide -->
+    <div th:if="${#lists.isEmpty(sites)}">
+        <p>Aucun site de camping n'est disponible pour le moment.</p>
+    </div>
+</body>
+</html>

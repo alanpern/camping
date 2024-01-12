@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+</head>
+<body>  
+       <form th:action="@{/recherche}" th:object="${rechercheSiteDTO}" method="post">
+         <label for="dateDebut">Date de début:</label>
+         <input type="date" id="dateDebut" name="dateDebut" th:field="*{dateDebut}" required />
+                    
+         <label for="dateFin">Date de fin:</label>
+         <input type="date" id="dateFin" name="dateFin" th:field="*{dateFin}" required />
+          
+         <label>Services:</label>
+            
+       <input type="radio" id="sansService" name="services" value="Sans Service" th:field="*{services}">
+        <label for="sansService">Sans Service</label>
+       	    
+    	 <input type="radio" id="eauSeule" name="services" value="Eau seulement" th:field="*{services}">
+         <label for="eauSeule">Eau seulement</label>
+            
+      	 <input type="radio" id="eauElectricite" name="services" value="Eau et électricité"  th:field="*{services}">
+         <label for="eauElectricite">Eau et électricité</label>
+          
+   	    <input type="radio" id="toutService" name="services" value="Eau-électricité-égouts" th:field="*{services}">
+           
+         <label for="longueurEquipement">Longueur d'équipement (en pieds):</label>
+         <select id="longueurEquipement" name="longueurEquipement" th:field="*{longueurEquipement}">
+           <option value="10">5 à 10 pieds</option>
+           <option value="15">10 à 15 pieds</option>
+           <option value="20">15 à 20 pieds</option>
+           <option value="29">20 à 29 pieds</option>
+           <option value="40">29 à 40 pieds</option>
+        </select>
+        
+        <div class="form-group">        
+           <button type="submit">Rechercher</button>       
+         </div>
+     </form>
+</body>
+</html>

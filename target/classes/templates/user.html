@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Profil Utilisateur - Camping Connecté</title>
+</head>
+<body>
+    <h1>Profil Utilisateur</h1>
+
+    <form th:action="@{/updateUser}" method="post">
+        <div>
+            <label for="nom">Nom:</label>
+            <input type="text" id="nom" name="nom" th:value="${user.nom}" required>
+        </div>
+
+        <div>
+            <label for="prenom">Prénom:</label>
+            <input type="text" id="prenom" name="prenom" th:value="${user.prenom}" required>
+        </div>
+
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" th:value="${user.email}" required>
+        </div>
+
+        <div>
+            <label for="telephone">Téléphone:</label>
+            <input type="tel" id="telephone" name="telephone" th:value="${user.telephone}" required>
+        </div>
+        <div>
+        <label for="adresse">Adresse:</label>
+        <input type="text" id="adresse" name="adresse" th:value="${user.adresse}" required>
+    </div>
+
+    <div>
+        <label for="ville">Ville:</label>
+        <input type="text" id="ville" name="ville" th:value="${user.ville}" required>
+    </div>
+
+        <button type="submit">Mettre à jour le profil</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+    <script src="js/script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="logo"><img src="images/logo.png"></div>
+            <ul class="menu">
+                <li><a href="accueil.html">Accueil</a></li>
+                <li><a href="activite.html">Activité</a></li>
+                <li><a href="information.html">Information</a></li>
+                <li><a href="photo-video.html">Photo/Vidéo</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </header>
+        <!-- Background Photo -->
+        <div class="background-photo1">
+            <!-- Title Section -->
+            <section class="title-section">
+                <h1 class="title">Camping Connecté</h1>
+                <h2 class="subtitle">L'endroit idéal pour flamber vos guimauves </h2>
+            </section>
+        </div>
+        <div>
+            <!-- Title Section -->
+            <h3>Terrains disponibles selon vos critères de selection. </h3>
+        </div>
+
+        <!-- Logique de sites disponibles -->
+        <div th:each="site : ${sitesDisponibles}">
+            <h2 th:text="${site.numero}">Site Name</h2>
+            <p th:text="${site.prixParNuit}">Price</p>
+            <p th:text="${site.services}">Services</p>
+            <p>Date de Début: <span th:text="${dateDebut}"></span></p>
+			<p>Date de Fin: <span th:text="${dateFin}"></span></p>
+		
+		    <a th:href="@{/reservations/reservation(siteId=${site.id}, dateDebut=${#dates.format(dateDebut, 'yyyy-MM-dd')}, dateFin=${#dates.format(dateFin, 'yyyy-MM-dd')})}">
+                  Réserver  </a>  			  
+  	     </div>
+    </div>
+    <div>
+        <a href="/">Retour à la page d'accueil</a>
+    </div>
+</body>
+</html>
+
