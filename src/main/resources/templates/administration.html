@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration</title>
+    <link rel="stylesheet" href="style/admin-styles.css">
+
+
+    <script src="/js/script.js"></script>
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- Administration Table Section -->
+    <section>
+        <h1>Administration</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Numéro (ID)</th>
+                    <th>Longueur Max</th>
+                    <th>Services</th>
+                    <th>Début</th>
+                    <th>Fin</th>
+                    <th>Nuits</th>
+                    <th>Prix total</th>
+                    <th>Prénom</th>
+                    <th>Nom</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="reservation : ${reservations}">
+                    <td th:text="${reservation.numero}">1</td>
+                    <td th:text="${reservation.longueurMax}">5-10'</td>
+                    <td th:text="${reservation.services}">Eau</td>
+                    <td th:text="${reservation.dateDebut}">22 Juin 2023</td>
+                    <td th:text="${reservation.dateFin}">24 Juin 2023</td>
+                    <td th:text="${reservation.nombreDeNuits}">2</td>
+                    <td th:text="${reservation.prixTotal}">300$</td>
+                    <td th:text="${reservation.prenom}">Alain</td>
+                    <td th:text="${reservation.nom}">Pernot</td>
+                    <td th:text="${reservation.status}">Confirmé</td>
+
+                </tr>
+            </tbody>
+        </table>
+    </section>
+</body>
+
+</html>

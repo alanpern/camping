@@ -16,8 +16,6 @@ import org.slf4j.LoggerFactory;
 
 @Controller
 public class PaiementController {
-//	@Autowired
-//	private com.campingconnecte.camping.service.ReservationService reservationService;
 
     @Autowired
    private ReservationService reservationService;
@@ -63,7 +61,12 @@ public class PaiementController {
         reservationService.saveReservation(reservation);
         
         logger.info("Paiement effectué avec succès pour la réservation avec l'ID {}. Statut mis à jour comme payée.", reservationId);
+   
+       
+        model.addAttribute("dateDebut", reservation.getDateDebut());
+        model.addAttribute("dateFin", reservation.getDateFin());
 
+        
         model.addAttribute("message", "Paiement effectué avec succès ! On vous attend le : [insérer date ici]");
         return "paymentconfirm"; // Rediriger vers la page de confirmation
     }

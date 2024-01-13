@@ -95,7 +95,13 @@ public class User {
     public void setVille(String ville) {
         this.ville = ville;
     }
+    public String getPays() {
+        return pays;
+    }
 
+    public void setPays(String pays) {
+        this.pays = pays;
+    }
     // Exemple de getter et setter pour le champ 'telephone'
     public String getTelephone() {
         return telephone;
@@ -104,6 +110,7 @@ public class User {
     public void setTelephone(String telephone) {
         this.telephone = telephone;
     }
+    
 
     // Getters et setters pour les réservations
     public Set<Reservation> getReservations() {

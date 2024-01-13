@@ -104,7 +104,8 @@ public class UserController {
         // Calculer le prix total
         BigDecimal prixTotal = coutReservation.add(tps).add(tvq);
         prixTotal = prixTotal.setScale(2, RoundingMode.HALF_UP); // Arrondir à 2 chiffres décimaux
-                           
+     // Définir la valeur de prixTotal dans l'objet Reservation
+        reservation.setPrixTotal(prixTotal);                    
        
      // Enregistrer la réservation
         Reservation savedReservation = reservationService.saveReservation(reservation);

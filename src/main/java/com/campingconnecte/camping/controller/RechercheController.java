@@ -16,7 +16,8 @@ import java.text.SimpleDateFormat;
 import java.util.Locale;
 
 @Controller
-@RequestMapping("/recherche")
+//@RequestMapping("/recherche")
+@RequestMapping("/")
 public class RechercheController {
 
     private final SiteService siteService;

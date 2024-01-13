@@ -14,7 +14,7 @@ public class ReservationDTO {
     private BigDecimal montantAvantTx;
   //  private BigDecimal tps;
   //  private BigDecimal tvq;
-   // private BigDecimal total;
+    private BigDecimal prixTotal;
     private String status;
 
     // Constructeur par défaut
@@ -69,7 +69,13 @@ public class ReservationDTO {
     public void setMontantAvantTx(BigDecimal montantAvantTx) {
         this.montantAvantTx = montantAvantTx;
     }
+    public BigDecimal getPrixTotal() {
+        return prixTotal;
+    }
 
+    public void setPrixTotal(BigDecimal prixTotal) {
+        this.prixTotal = prixTotal;
+    }
     public String getStatus() {
         return status;
     }

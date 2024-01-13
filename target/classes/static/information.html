@@ -5,11 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
-    <link rel="stylesheet" href="css/styles.css"> <!-- Replace with your CSS file path -->
+    <link rel="stylesheet" href="/css/styles.css"> <!-- Replace with your CSS file path -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -20,9 +17,9 @@
         <header class="header">
             <div class="logo"><img src="images/logo.png"></div>
             <ul class="menu">
-                <li class="active"><a href="index.html">Accueil</a></li>
+                <li><a href="/">Accueil</a></li>
                 <li><a href="activite.html">Activité</a></li>
-                <li><a href="information.html">Information</a></li>
+                <li class="active"><a href="information.html">Information</a></li>
                 <li><a href="photo-video.html">Photo/Vidéo</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
@@ -31,112 +28,98 @@
         <div class="background-photo1">
             <!-- Title Section -->
             <section class="title-section">
-                <h1 class="title"><strong>Camping Connecté</strong></h1>
-                <div class="subtitle">L'endroit idéal pour flamber vos guimauves </div>
+                <h1 class="title">Camping Connecté</h1>
+                <h2 class="subtitle">L'endroit idéal pour flamber vos guimauves </h2>
             </section>
 
         </div>
 
-        <!-- Form Section -->
-     <!--   <form th:action="@{/recherche}" th:object="${rechercheSiteDTO}" method="post" id="reserver">-->
-        <form th:action="@{/}" th:object="${rechercheSiteDTO}" method="post" id="reserver">
-            <div class="form-container">
-                <div class="form-item">
-                    <label for="dateDebut">Date de début:</label>
-                    <input type="date" id="dateDebut" name="dateDebut" th:field="*{dateDebut}" required />
-                </div>
-                <div class="form-item">
-                    <label for="dateFin">Date de fin:</label>
-                    <input type="date" id="dateFin" name="dateFin" th:field="*{dateFin}" required />
-                </div>
-
-
-
-                <!--   <div class="form-item">
-                <label for="personne">Nombre de personne</label>
-                <input type="number" id="personne" name="personne" value="2">
+        <!-- Activité Texte -->
+        <div>
+            <h1>Informations générales </h1>
+            <div>
+                Plongez-vous dans une expérience inoubliable. Découvrez de nouvelles passions et libérer votre esprit.
+                Chaque moment passé avec nous est une aventure à savourer. Reconnectez-vous avec vous-même et avec le
+                monde qui vous entoure, laissez-vous emporter par la magie de nos activités.
             </div>
-          -->
+        </div>
+        <!-- Accommodations Section -->
+        <section class=" pitch-section">
+            <div class="pitch-text">
 
+                <h1>Accommodations!</h1>
                 <div>
-                    <div class="form-item">
-                        <label for="services">Services:</label>
-                        <select id="services" name="services" th:field="*{services}">
-                            <option value="Sans Service">Sans Service</option>
-                            <option value="Eau seulement">Eau seulement</option>
-                            <option value="Eau et électricité">Eau et électricité</option>
-                            <option value="Eau-électricité-égouts">Eau-électricité-égouts</option>
-                        </select>
-                    </div>
-                </div>
-
-
-                <div class="form-item">
-                    <label for="longueurEquipement">Longueur d'équipement (en pieds):</label>
-                    <select id="longueurEquipement" name="longueurEquipement" th:field="*{longueurEquipement}">
-                        <option value="10">5 à 10 pieds</option>
-                        <option value="15">10 à 15 pieds</option>
-                        <option value="20">15 à 20 pieds</option>
-                        <option value="29">20 à 29 pieds</option>
-                        <option value="40">29 à 40 pieds</option>
-                    </select>
+                    <ul>
+                        <li>Emplacements pour tentes avec accès à l'électricité</li>
+                        <li>Caravanes et camping-cars équipés de toutes les commodités</li>
+                        <li>Cabines en bois isolées avec chauffage et climatisation</li>
+                        <li>Emplacements pour feux de camp avec grilles de barbecue fournies</li>
+                        <li>Aires de jeux et activités pour enfants</li>
+                        <li>Sanitaires modernes avec douches chaudes et toilettes</li>
+                        <li>Accès à une piscine extérieure et un espace détente</li>
+                        <li>Zone Wi-Fi pour rester connecté, même en pleine nature</li>
+                        <li>Aires de pique-nique et espaces communs</li>
+                        <li>Location de vélos et équipements de randonnée</li>
+                    </ul>
                 </div>
 
             </div>
-
-            <div class="form-group">
-                <hr class="hr1">
-                <button type="submit">Rechercher</button>
-                <hr class="hr2">
-            </div>
-
-        </form>
+            <div class="background-photo6"></div>
+        </section>
 
 
-
-        <!-- Pitch Section -->
-        <section class="pitch-section">
+        <!-- Reglements Section -->
+        <section class=" pitch-section">
             <div class="pitch-text">
 
-                <h1>Évasion Naturelle chez Nous !</h1>
-                <p>Plongez dans un havre de paix et de sérénité.</p>
-                <p>Renouez avec la nature, respirez l'air pur et découvrez la beauté sauvage.</p>
-                <p>Rejoignez-nous pour une expérience de camping inoubliable et revitalisante.</p>
+                <h1>Règlements</h1>
+                <div>
+                    <ul>
+                        <li>Le silence est requis de 22h à 7h pour respecter la tranquillité de tous.</li>
+                        <li>Les feux de camp sont autorisés uniquement dans les zones désignées et doivent être
+                            surveillés en permanence.</li>
+                        <li>Il est interdit de couper des arbres ou de prélever de la végétation sur le site.</li>
+                        <li>Les animaux domestiques doivent être tenus en laisse et surveillés à tout moment.</li>
+                        <li>Veuillez utiliser les poubelles et les installations de recyclage pour garder le site
+                            propre.</li>
+                        <li>La vitesse maximale dans le camping est limitée à 10 km/h pour la sécurité de tous.</li>
+                        <li>Les équipements et installations du camping doivent être utilisés de manière responsable.
+                        </li>
+                        <li>Les activités nuisibles ou dangereuses sont strictement interdites.</li>
+                        <li>Tout comportement perturbateur ou bruyant peut entraîner l'expulsion du camping.</li>
+                        <li>Le respect des autres campeurs et du personnel est essentiel en tout temps.</li>
+                    </ul>
+                </div>
 
             </div>
-            <div class="background-photo2"></div>
+            <div class="background-photo7"></div>
         </section>
 
-        <!-- Activities Photo Section -->
-        <section>
-            <div class="photo-container">
-                <div class="activity-photo"></div>
 
-            </div>
-        </section>
 
-        <!-- Activities Section -->
+        <!-- Sauna Section -->
         <section class="activities-section">
-            <div class="activity-photo1"></div>
+            <div class="background-photo4"></div>
             <div class="pitch-text">
-                <h1>Des services pour votre bonheur !</h1>
-                <ul>
-                    <li>Piste cyclable pour les amateurs de vélo</li>
-                    <li>Sauna baril : détente et bien-être assurés</li>
-                    <li>Sentier pédestre à travers des paysages époustouflants</li>
-                    <li>Wi-Fi gratuit sur l'ensemble du site</li>
-                    <li>Aires de pique-nique équipées et ombragées</li>
-                    <li>Location d'équipements de plein air</li>
-                    <li>Ateliers nature et découverte de la faune locale</li>
-                    <li>Service de navette pour les excursions locales</li>
-                </ul>
+                <h1>Nos Tarifs</h1>
+                <div>
+                    <ul>
+                        <li>Avec aucun service : $30.00 </li>
+                        <li>Avec eau : $40.00 </li>
+                        <li>Avec eau et électricité : $50.00 </li>
+                        <li>Avec eau, électricité et égout : $60.00 </li>
+
+                    </ul>
+                </div>
             </div>
         </section>
+
+
 
         <!-- Activities Photo Section -->
         <section>
             <div class="photo-container">
-                <div class="activity-photo3"></div>
+                <div class="activity-photo6"></div>
 
             </div>
         </section>
@@ -146,7 +129,8 @@
             <div class="pitch-text">
                 <h1>Réservez votre escapade de rêve maintenant !</h1>
                 <div>
-                    Découvrez un lieu enchanteur loin du tumulte, immergez-vous dans la beauté naturelle, respirez l'air
+                    Découvrez un lieu enchanteur loin du tumulte, immergez-vous dans la beauté naturelle, respirez
+                    l'air
                     de la montagne et relaxez-vous au chant des oiseaux. Partagez des moments uniques et créez des
                     souvenirs mémorables. Le paradis vous attend.
                 </div>
@@ -156,10 +140,9 @@
                     </a>
                 </div>
             </div>
-            <div class="activity-photo2"></div>
+            <div class="activity-photo5"></div>
         </section>
 
-        <!-- Footer -->
         <!-- Footer -->
         <footer class="footer">
 

@@ -4,56 +4,106 @@
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Réservation</title>
+    
+     <link rel="stylesheet" href="/css/form-styles.css">
     <link rel="stylesheet" href="/css/styles.css">
     <script src="/js/script.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
  </head>
-<body>	
-    <h2>Information du Site</h2>
-    <p>Numéro: <span th:text="${site.numero}"></span></p>
-    <p>Longueur Max: <span th:text="${site.longueurMax}"></span> mètres</p>
-    <p>Services: <span th:text="${site.services}"></span></p>
-    <p>Prix par Nuit: <span th:text="${site.prixParNuit}"></span> $</p>
-    
-    <h3>Dates de Réservation</h3>
-    <p>Date de Début: <span th:text="${dateDebut}"></span></p>
-	<p>Date de Fin: <span th:text="${dateFin}"></span></p>	
-	
-	<h3>Informations de la Réservation</h3>
-	<p>Nombre de Nuits: <span th:text="${nombreDeNuits}"></span></p>
-	<p>Coût avant taxes: <span th:text="${coutReservation}"></span> $</p>
-	<p>Montant de la TPS: <span th:text="${tps}"></span> $</p>
-	<p>Montant de la TVQ: <span th:text="${tvq}"></span> $</p>
-	
-	<p>Prix Total: <span th:text="${prixTotal}"></span> $</p>	
+<body>
+    <div class="container">
 
-	<div>
-    <!--<form th:action="@{/updateUserAndPayment}" method="post">-->
-	<form th:action="@{/updateUser}" method="post">
-    <label for="nom">Nom :</label>
-    <input type="text" id="nom" name="nom" required>    
-    <label for="prenom">Prénom :</label>
-    <input type="text" id="prenom" name="prenom" required>
-    <label for="adresse">Adresse :</label>
-    <input type="text" id="adresse" name="adresse" required>    
-    <label for="ville">Ville :</label>
-    <input type="text" id="ville" name="ville" required>   
-    <label for="pays">Pays :</label>
-	<input type="text" id="pays" name="pays" required> 
-    <label for="email">Email :</label>
-    <input type="email" id="email" name="email" required>    
-    <label for="telephone">Téléphone :</label>
-    <input type="tel" id="telephone" name="telephone" required>        
-    <!-- Champ caché pour 'siteId' -->
+        <!-- Header Section -->
+        <header class="header">
+            <div class="logo"><img src="/images/logo.png"></div>
+            <ul class="menu">
+                <li><a href="/">Accueil</a></li>
+                <li><a href="activite.html">Activité</a></li>
+                <li><a href="information.html">Information</a></li>
+                <li><a href="photo-video.html">Photo/Vidéo</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </header>
+        <!-- Background Photo -->
+        <div class="background-photo1">
+            <!-- Title Section -->
+            <section class="title-section">
+                <h1 class="title">Camping Connecté</h1>
+                <h2 class="subtitle">L'endroit idéal pour flamber vos guimauves </h2>
+            </section>
+
+        </div>
+        <!--Version 8 janvier 10h00-->
+        <h3>Information du Site</h3>
+        <p>Numéro: <span th:text="${site.numero}"></span></p>
+        <p>Longueur Max: <span th:text="${site.longueurMax}"></span> mètres</p>
+        <p>Services: <span th:text="${site.services}"></span></p>
+        <p>Prix par Nuit: <span th:text="${site.prixParNuit}"></span> $</p>
+
+        <h3>Dates de Réservation</h3>
+        <p>Date de Début: <span th:text="${dateDebut}"></span></p>
+        <p>Date de Fin: <span th:text="${dateFin}"></span></p>
+        <h3>Informations de la Réservation</h3>
+        <p>Nombre de Nuits: <span th:text="${nombreDeNuits}"></span></p>
+        <p>Coût avant taxes: <span th:text="${coutReservation}"></span> $</p>
+        <p>Montant de la TPS: <span th:text="${tps}"></span> $</p>
+        <p>Montant de la TVQ: <span th:text="${tvq}"></span> $</p>
+
+        <p>Prix Total: <span th:text="${prixTotal}"></span> $</p>
+        <hr>
+        <!-- Reservation Information Section -->
+        <section class="reservation-information">
+            <h3>Entrez vos coordonnées afin de compléter votre réservation.</h3>
+            <!-- Add your form here -->
+           <form th:action="@{/updateUser}" method="post">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="prenom">Prénom:</label>
+                        <input type="text" id="prenom" name="prenom" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nom">Nom:</label>
+                        <input type="text" id="nom" name="nom" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="adresse">Adresse:</label>
+                    <input type="adresse" id="adresse" name="adresse" class="adresse" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="ville">Ville:</label>
+                        <input type="text" id="ville" name="ville" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="pays">Pays:</label>
+                        <input type="text" id="pays" name="pays" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telephone">Téléphone:</label>
+                        <input type="tel" id="telephone" name="telephone" required>
+                    </div>
+                </div>
+                <!-- Champ caché pour 'siteId' -->
     <input type="hidden" name="siteId" th:value="${site.id}" />
     <!-- Champs cachés pour les dates de début et de fin, si nécessaire -->
     <input type="hidden" name="dateDebut" th:value="${dateDebut}" />
-    <input type="hidden" name="dateFin" th:value="${dateFin}" />    
-    
-    <button type="submit">Confirmer</button>
-    </form>
-	</div>
+    <input type="hidden" name="dateFin" th:value="${dateFin}" />  
+                <div class="form-group">
+                    <button type="submit" class="confirm-button">Confirmer</button>
+                </div>
+            </form>
+        </section>
+
+
 </body>
-</html>	
+
+</html>

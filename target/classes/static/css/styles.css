@@ -91,7 +91,7 @@ h2 {
 label,
 input[type="text"] {
   display: block;
-  width: 100%;
+  width: 90%;
   margin-bottom: 10px; /* Optional: to provide some spacing between the label and the input */
 }
 
@@ -103,7 +103,7 @@ input[type="text"] {
 
 .form-group {
   margin-bottom: 20px;
-  text-align: center;
+  text-align: left;
   padding: 10px 0px 0px 0px;
 }
 
@@ -117,7 +117,7 @@ input[type="text"] {
   box-sizing: border-box; /* This will make sure padding and border are included in the width */
   padding: 10px; /* Optional: for spacing */
 }
-#personne {
+#longueurEquipement {
   width: 100%; /* Takes up the full width of its container */
   box-sizing: border-box; /* Ensures padding and border are included in the total width */
   padding: 10px; /* Optional: Adds some padding inside the input for better visual appeal */
@@ -127,11 +127,11 @@ input[type="text"] {
   transition: border-color 0.3s; /* Optional: Smooth transition effect for border color */
 }
 
-#personne:focus {
+#longueurEquipement:focus {
   border-color: #007bff; /* Optional: Changes border color when input is focused */
 }
 
-#arrive {
+#dateDebut {
   width: 100%; /* Takes up the full width of its container */
   box-sizing: border-box; /* Ensures padding and border are included in the total width */
   padding: 10px; /* Optional: Adds some padding inside the input for better visual appeal */
@@ -141,11 +141,11 @@ input[type="text"] {
   transition: border-color 0.3s; /* Optional: Smooth transition effect for border color */
 }
 
-#arrive:focus {
+#dateDebut:focus {
   border-color: #007bff; /* Optional: Changes border color when input is focused */
 }
 
-#depart {
+#dateFin {
   width: 100%; /* Takes up the full width of its container */
   box-sizing: border-box; /* Ensures padding and border are included in the total width */
   padding: 10px; /* Optional: Adds some padding inside the input for better visual appeal */
@@ -155,11 +155,11 @@ input[type="text"] {
   transition: border-color 0.3s; /* Optional: Smooth transition effect for border color */
 }
 
-#depart:focus {
+#dateFin:focus {
   border-color: #007bff; /* Optional: Changes border color when input is focused */
 }
 
-#terrain {
+#services {
   width: 100%; /* Takes up the full width of its container */
   box-sizing: border-box; /* Ensures padding and border are included in the total width */
   padding: 10px; /* Optional: Adds some padding inside the input for better visual appeal */
@@ -169,7 +169,7 @@ input[type="text"] {
   transition: border-color 0.3s; /* Optional: Smooth transition effect for border color */
 }
 
-#terrain:focus {
+#services:focus {
   border-color: #007bff; /* Optional: Changes border color when input is focused */
 }
 

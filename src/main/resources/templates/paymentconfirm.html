@@ -3,21 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <title>Confirmation de Paiement</title>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="css/styles.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+
 </head>
 <body>
+
+    <div class="container">
+
+        <!-- Header Section -->
+        <header class="header">
+            <div class="logo"><img src="images/logo.png"></div>
+            <ul class="menu">
+                <li><a href="/">Accueil</a></li>
+                <li><a href="activite.html">Activité</a></li>
+                <li><a href="information.html">Information</a></li>
+                <li><a href="photo-video.html">Photo/Vidéo</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </header>
+        <!-- Background Photo -->
+        <div class="background-photo1">
+            <!-- Title Section -->
+            <section class="title-section">
+                <h1 class="title"><strong>Camping Connecté</strong></h1>
+                <div class="subtitle">L'endroit idéal pour flamber vos guimauves </div>
+            </section>
+
+        </div>
     <div>
         <h1>Confirmation de Paiement</h1>
-        <!--<p th:text="${message}">-->
-			<!--On vous attends du : <span th:text="${reservation.status}"></span> 
-			au : <span th:text="${reservation.dateFin}"></span>
-			<p th:text="'On vous attend du ' + ${#dates.format(reservation.dateDebut, 'dd/MM/yyyy')} + ' au ' + ${#dates.format(reservation.dateFin, 'dd/MM/yyyy')}" />-->
-<p> On vous attends du :
- Date de Début: <span th:text="${dateDebut}"></span></p>
-	<p>Date de Fin: <span th:text="${dateFin}"></span></p>	
-		</p>
-		<!-- <p>Numéro de Réservation : <span th:text="${#numbers.formatInteger(reservation.id)}"></span></p> -->
-        <!--<p>Numéro de Réservation : <span th:text="${reservation.id}"></span></p>-->
-        
-    </div>
+        <p>On vous attend du :<span th:text="${dateDebut}"></span></p>
+        <p>  au : <span th:text="${dateFin}"></span></p>
+   </div>
 </body>
 </html>

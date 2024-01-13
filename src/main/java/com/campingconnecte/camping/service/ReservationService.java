@@ -71,8 +71,11 @@ public class ReservationService {
         // Calcul du montant total incluant les taxes
         BigDecimal montantTotalTaxes = tps.add(tvq);
         BigDecimal prixTotal = coutReservation.add(montantTotalTaxes);
-
+        logger.info("Prix total avant mise à jour : {}", prixTotal);
+     
         reservation.setPrixTotal(prixTotal);
+        
+        logger.info("Prix total après mise à jour : {}", reservation.getPrixTotal());
 
         // Calcul du statut en fonction de la logique de votre application (par exemple, paiement effectué)
         // Vous pouvez définir le statut en fonction de vos conditions et de la logique métier de votre application

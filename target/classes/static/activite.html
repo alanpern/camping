@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil</title>
-    <link rel="stylesheet" href="css/styles.css"> <!-- Replace with your CSS file path -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <title>Activité</title>
+    <link rel="stylesheet" href="/css/styles.css"> <!-- Replace with your CSS file path -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
@@ -20,8 +19,8 @@
         <header class="header">
             <div class="logo"><img src="images/logo.png"></div>
             <ul class="menu">
-                <li class="active"><a href="index.html">Accueil</a></li>
-                <li><a href="activite.html">Activité</a></li>
+                <li><a href="/">Accueil</a></li>
+                <li class="active"><a href="activite.html">Activité</a></li>
                 <li><a href="information.html">Information</a></li>
                 <li><a href="photo-video.html">Photo/Vidéo</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -37,106 +36,65 @@
 
         </div>
 
-        <!-- Form Section -->
-     <!--   <form th:action="@{/recherche}" th:object="${rechercheSiteDTO}" method="post" id="reserver">-->
-        <form th:action="@{/}" th:object="${rechercheSiteDTO}" method="post" id="reserver">
-            <div class="form-container">
-                <div class="form-item">
-                    <label for="dateDebut">Date de début:</label>
-                    <input type="date" id="dateDebut" name="dateDebut" th:field="*{dateDebut}" required />
-                </div>
-                <div class="form-item">
-                    <label for="dateFin">Date de fin:</label>
-                    <input type="date" id="dateFin" name="dateFin" th:field="*{dateFin}" required />
-                </div>
-
-
-
-                <!--   <div class="form-item">
-                <label for="personne">Nombre de personne</label>
-                <input type="number" id="personne" name="personne" value="2">
+        <!-- Activité Texte -->
+        <div>
+            <h1>Nos activités variées vous ressourceront</h1>
+            <div>
+                Plongez-vous dans une expérience inoubliable. Découvrez de nouvelles passions et libérer votre esprit.
+                Chaque moment passé avec nous est une aventure à savourer. Reconnectez-vous avec vous-même et avec le
+                monde qui vous entoure, laissez-vous emporter par la magie de nos activités.
             </div>
-          -->
-
-                <div>
-                    <div class="form-item">
-                        <label for="services">Services:</label>
-                        <select id="services" name="services" th:field="*{services}">
-                            <option value="Sans Service">Sans Service</option>
-                            <option value="Eau seulement">Eau seulement</option>
-                            <option value="Eau et électricité">Eau et électricité</option>
-                            <option value="Eau-électricité-égouts">Eau-électricité-égouts</option>
-                        </select>
-                    </div>
-                </div>
-
-
-                <div class="form-item">
-                    <label for="longueurEquipement">Longueur d'équipement (en pieds):</label>
-                    <select id="longueurEquipement" name="longueurEquipement" th:field="*{longueurEquipement}">
-                        <option value="10">5 à 10 pieds</option>
-                        <option value="15">10 à 15 pieds</option>
-                        <option value="20">15 à 20 pieds</option>
-                        <option value="29">20 à 29 pieds</option>
-                        <option value="40">29 à 40 pieds</option>
-                    </select>
-                </div>
-
-            </div>
-
-            <div class="form-group">
-                <hr class="hr1">
-                <button type="submit">Rechercher</button>
-                <hr class="hr2">
-            </div>
-
-        </form>
-
-
-
-        <!-- Pitch Section -->
-        <section class="pitch-section">
+        </div>
+        <!-- Velo Section -->
+        <section class=" pitch-section">
+            <div class="background-photo5"></div>
             <div class="pitch-text">
 
-                <h1>Évasion Naturelle chez Nous !</h1>
-                <p>Plongez dans un havre de paix et de sérénité.</p>
-                <p>Renouez avec la nature, respirez l'air pur et découvrez la beauté sauvage.</p>
-                <p>Rejoignez-nous pour une expérience de camping inoubliable et revitalisante.</p>
+                <h1>Vélo de montagne !</h1>
+                <div>Que l'on soit débutant ou expert, le vélo de montagne offre une multitude de sensations, d'émotions
+                    et de découvertes. Chaque sentier, chaque montée, chaque descente est une nouvelle aventure à vivre
+                    pleinement, un défi à relever et un moment de pure liberté. En selle, l'aventure vous attend !</div>
 
             </div>
-            <div class="background-photo2"></div>
+
         </section>
 
-        <!-- Activities Photo Section -->
-        <section>
-            <div class="photo-container">
-                <div class="activity-photo"></div>
+
+        <!-- Spectacle Section -->
+        <section class=" pitch-section">
+            <div class="pitch-text">
+
+                <h1>Spectacles en nature !</h1>
+                <div>Ah, le chansonnier au feu de camp ! Un rituel intemporel qui évoque immédiatement des souvenirs de
+                    camping, d'étoiles scintillantes et de chansons fredonnées en chœur. Nos spectacles en nature font
+                    le bonheur de tous!</div>
 
             </div>
+            <div class="background-photo3"></div>
         </section>
 
-        <!-- Activities Section -->
+
+
+        <!-- Sauna Section -->
         <section class="activities-section">
-            <div class="activity-photo1"></div>
+            <div class="background-photo4"></div>
             <div class="pitch-text">
-                <h1>Des services pour votre bonheur !</h1>
-                <ul>
-                    <li>Piste cyclable pour les amateurs de vélo</li>
-                    <li>Sauna baril : détente et bien-être assurés</li>
-                    <li>Sentier pédestre à travers des paysages époustouflants</li>
-                    <li>Wi-Fi gratuit sur l'ensemble du site</li>
-                    <li>Aires de pique-nique équipées et ombragées</li>
-                    <li>Location d'équipements de plein air</li>
-                    <li>Ateliers nature et découverte de la faune locale</li>
-                    <li>Service de navette pour les excursions locales</li>
-                </ul>
+                <h1>Sauna baril détente absolu !</h1>
+                <div>
+                    Le sauna baril, niché au cœur de la nature, est une invitation à la détente et au ressourcement. Sa
+                    forme cylindrique, rappelant les vieux fûts ou les barils, lui confère un charme rustique et
+                    authentique, parfaitement en harmonie avec les éléments naturels qui l'entourent.
+
+                </div>
             </div>
         </section>
+
+
 
         <!-- Activities Photo Section -->
         <section>
             <div class="photo-container">
-                <div class="activity-photo3"></div>
+                <div class="activity-photo4"></div>
 
             </div>
         </section>
@@ -146,7 +104,8 @@
             <div class="pitch-text">
                 <h1>Réservez votre escapade de rêve maintenant !</h1>
                 <div>
-                    Découvrez un lieu enchanteur loin du tumulte, immergez-vous dans la beauté naturelle, respirez l'air
+                    Découvrez un lieu enchanteur loin du tumulte, immergez-vous dans la beauté naturelle, respirez
+                    l'air
                     de la montagne et relaxez-vous au chant des oiseaux. Partagez des moments uniques et créez des
                     souvenirs mémorables. Le paradis vous attend.
                 </div>
@@ -156,10 +115,9 @@
                     </a>
                 </div>
             </div>
-            <div class="activity-photo2"></div>
+            <div class="activity-photo5"></div>
         </section>
 
-        <!-- Footer -->
         <!-- Footer -->
         <footer class="footer">
 

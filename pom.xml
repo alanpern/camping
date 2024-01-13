@@ -119,7 +119,7 @@
                 <source>20</source> <!-- Set source version -->
                 <target>20</target> <!-- Set target version -->
                 <!-- If necessary, you can also set the release here -->
-                <!-- <release>20</release> -->
+                <release>20</release>
             </configuration>
         </plugin>
 		</plugins>
