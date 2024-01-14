@@ -117,6 +117,14 @@ input[type="text"] {
   box-sizing: border-box; /* This will make sure padding and border are included in the width */
   padding: 10px; /* Optional: for spacing */
 }
+
+.error-message {
+    color: red; /* Texte en rouge */
+    font-weight: bold; /* Texte en gras */   
+    padding: 5px; /* Ajoute un peu d'espace autour du texte */
+}
+
+
 #longueurEquipement {
   width: 100%; /* Takes up the full width of its container */
   box-sizing: border-box; /* Ensures padding and border are included in the total width */

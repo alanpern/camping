@@ -48,6 +48,9 @@
                 <div class="form-item">
                     <label for="dateFin">Date de fin:</label>
                     <input type="date" id="dateFin" name="dateFin" th:field="*{dateFin}" required />
+                    <!--Message si dateFin inf dateDebut -->
+                    <p id="dateFinError" class="error-message"></p>
+                    
                 </div>
 
 
@@ -187,6 +190,30 @@
         </footer>
 
     </div>
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var form = document.getElementById('reserver');
+        var dateDebutInput = document.getElementById('dateDebut');
+        var dateFinInput = document.getElementById('dateFin');
+        var dateFinError = document.getElementById('dateFinError');
+
+        form.addEventListener('submit', function (event) {
+            var dateDebut = new Date(dateDebutInput.value);
+            var dateFin = new Date(dateFinInput.value);
+
+            if (dateFin <= dateDebut) {
+                dateFinError.textContent = "La date de fin doit être supérieure à la date de début.";
+                dateFinError.classList.add('error-message'); // Appliquer la classe CSS personnalisée
+                dateFinInput.classList.add('error-message'); // Appliquer la classe CSS au champ d'entrée
+                event.preventDefault();
+            } else {
+                dateFinError.textContent = "";
+                dateFinInput.classList.remove('error-message'); // Retirer la classe CSS du champ d'entrée s'il n'y a pas d'erreur
+            }
+        });
+    });
+</script>
+    
 </body>
 
 </html>
