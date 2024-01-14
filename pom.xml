@@ -114,7 +114,7 @@
 			<plugin>
             <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
-            <version>3.8.1</version> <!-- Make sure this version is compatible with Java 20 -->
+            <version>3.9.5</version> <!-- Make sure this version is compatible with Java 20 -->
             <configuration>
                 <source>21</source> <!-- Set source version -->
                 <target>21</target> <!-- Set target version -->
