@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accueil</title>
+    <link rel="stylesheet" href="style/styles.css"> <!-- Replace with your CSS file path -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Header Section -->
+        <header class="header">
+            <div class="logo"><img src="images/logo.png"></div>
+            <ul class="menu">
+                <li><a href="/">Accueil</a></li>
+                <li><a href="activite.html">Activité</a></li>
+                <li><a href="information.html">Information</a></li>
+                <li><a href="photo-video.html">Photo/Vidéo</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </header>
+        <!-- Background Photo -->
+        <div class="background-photo1">
+            <!-- Title Section -->
+            <section class="title-section">
+                <h1 class="title">Camping Connecté</h1>
+                <h2 class="subtitle">L'endroit idéal pour flamber vos guimauves </h2>
+            </section>
+
+        </div>
+
+        <div>
+            <!-- Title Section -->
+
+            <h3>Terrains disponibles selon vos critères de selection. </h3>
+        </div>
+
+        <!-- Logique de sites disponibles -->
+        <div th:each="site : ${sites}">
+            <h2 th:text="${site.name}">Site Name</h2>
+            <p th:text="'Price: ' + ${site.price}">Price</p>
+            <p th:text="${site.description}">Description</p>
+            <button type="submit">Choisir</button>
+        </div>
+
+    </div>
+</body>
+
+</html>
