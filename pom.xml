@@ -116,11 +116,9 @@
             <artifactId>maven-compiler-plugin</artifactId>
             
             <configuration>
-                <source>21</source> <!-- Set source version -->
-                <target>21</target> <!-- Set target version -->
-                <!-- If necessary, you can also set the release here -->
-                <release>21</release>
-            </configuration>
+    <release>17</release> <!-- Specifies Java 21 for source, target, and API compatibility -->
+</configuration>
+
         </plugin>
 		</plugins>
 	</build>
