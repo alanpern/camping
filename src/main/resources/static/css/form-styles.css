@@ -37,7 +37,8 @@ body {
 input[type="text"],
 input[type="email"],
 input[type="adresse"],
-input[type="tel"] {
+input[type="tel"],
+input[type="month"] {
   width: 90%;
   padding: 10px;
   margin-bottom: 10px;
@@ -54,20 +55,22 @@ input[type="adresse"] {
 }
 
 /* Style for the confirm button */
-button.confirm-button {
+.form-group button[type="submit"] {
+  background-color: #45a049; /* Darker green color on hover */
+  color: #fff; /* White text color */
+  padding: 20px 20px; /* Padding for size */
+  border: none; /* No border */
+  cursor: pointer; /* Hand cursor on hover */
+  font-size: 16px; /* Font size */
+  border-radius: 4px; /* Rounded corners */
+  transition: background-color 0.3s; /* Smooth transition effect for hover */
+  overflow: auto; /* This can prevent margin collapse */
   width: 100%;
-  padding: 15px;
-  border: none;
-  background-color: #333;
-  color: white;
-  font-size: 1em;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  height: auto;
 }
 
 button.confirm-button:hover {
-  background-color: #555;
+  background-color: #69b630;
 }
 
 /* Responsive adjustments for smaller screens */
@@ -79,7 +82,8 @@ button.confirm-button:hover {
   input[type="text"],
   input[type="email"],
   input[type="adresse"],
-  input[type="tel"] {
+  input[type="tel"],
+  input[type="month"] {
     width: 90%; /* Full width on smaller screens */
   }
 }

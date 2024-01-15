@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 
 <head>
     <meta charset="UTF-8">
@@ -46,14 +46,16 @@
 
             <p>Rejoignez-nous au Camping Connecté pour une expérience authentique et ressourçante. Pour plus
                 d'informations ou pour réserver votre séjour, contactez-nous ! L'aventure vous attend.</p>
-            <form action="mailto:alain@alainpernot.com" method="post" enctype="text/plain">
-                <input type="text" name="name" placeholder="Nom">
-                <input type="email" name="email" placeholder="Email">
-                <textarea name="message" placeholder="Message"></textarea>
-                <div class="form-group">
-                    <button type="submit">Envoyer</button>
-                </div>
-            </form>
+            <form id="contactForm" action="/contact" method="post">
+    <input type="text" name="name" placeholder="Nom">
+    <input type="email" name="email" placeholder="Email">
+    <textarea name="message" placeholder="Message"></textarea>
+    <div class="form-group">
+        <button type="submit" class="confirm-button">Envoyer</button>
+    </div>
+</form>
+<div id="formMessage"></div>
+
         </section>
 
 
@@ -86,6 +88,35 @@
             </div>
 
         </footer>
+        <script>
+        document.getElementById('contactForm').addEventListener('submit', function(event){
+            event.preventDefault();
+
+            var formData = new FormData(this);
+            var messageElement = document.getElementById('formMessage');
+
+            // Update the message to "Sending..." right before the fetch request
+            messageElement.innerHTML = '<p style="color: blue;">Envoi en cours...</p>';
+
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data);
+                // Display a success message to the user
+                messageElement.innerHTML = '<p style="color: green;">Merci pour votre message! Nous vous répondrons dans les prochains 24 hrs.</p>';
+            })
+            .catch(error => {
+                console.error(error);
+                // Display an error message to the user
+                messageElement.innerHTML = '<p style="color: red;">Il y a un problème avec le formulaire. SVP contactez-nous directement.</p>';
+            });
+        });
+
+</script>
+
 
 </body>
 

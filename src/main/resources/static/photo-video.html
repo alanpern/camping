@@ -7,7 +7,7 @@
     <title>Accueil</title>
     <link rel="stylesheet" href="/css/styles.css"> <!-- Replace with your CSS file path -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <script>
+   <!-- <script>
         var slideIndex = 0; // Global variable to keep track of the current slide
 
         document.addEventListener('DOMContentLoaded', (event) => {
@@ -43,7 +43,7 @@
                 captionText.innerHTML = thumbnails[slideIndex].alt;
             };
         });
-    </script>
+    </script> -->
 
 
 
@@ -74,21 +74,23 @@
 
         </div>
         <!-- Photo-grid -->
+        <h1>Photo</h1>
         <div class="grid">
-            <img src="../images/video.jpg" alt="Thumbnail 1" class="thumbnail modal-trigger" id="modalTriggerImg" />
-            <img src="../images/velo.jpg" alt="Thumbnail 2" class="thumbnail" />
-            <img src="../images/cycling.jpg" alt="Thumbnail 3" class="thumbnail" />
-            <img src="../images/sauna.jpg" alt="Thumbnail 4" class="thumbnail" />
-            <img src="../images/guitar.jpg" alt="Thumbnail 5" class="thumbnail" />
-            <img src="../images/lovers.jpg" alt="Thumbnail 6" class="thumbnail" />
-            <img src="../images/camping.jpg" alt="Thumbnail 7" class="thumbnail" />
-            <img src="../images/people.jpg" alt="Thumbnail 8" class="thumbnail" />
-            <img src="../images/marshmallows.jpg" alt="Thumbnail 9" class="thumbnail" />
-            <img src="../images/guitarfire.jpg" alt="Thumbnail 10" class="thumbnail" />
-            <img src="../images/sauna-baril.jpg" alt="Thumbnail 11" class="thumbnail" />
-            <img src="../images/velo.jpg" alt="Thumbnail 12" class="thumbnail" />
+            
+            <img src="../images/friends.jpg" alt="Amis" class="thumbnail" />
+            <img src="../images/velo.jpg" alt="Vélo" class="thumbnail" />
+            <img src="../images/cycling.jpg" alt="Vélo Plus" class="thumbnail" />
+            <img src="../images/sauna.jpg" alt="Sauna" class="thumbnail" />
+            <img src="../images/guitar.jpg" alt="Guitare" class="thumbnail" />
+            <img src="../images/lovers.jpg" alt="Amour" class="thumbnail" />
+            <img src="../images/camping.jpg" alt="Rassemblement" class="thumbnail" />
+            <img src="../images/people.jpg" alt="Amitié" class="thumbnail" />
+            <img src="../images/marshmallows.jpg" alt="Guimauve" class="thumbnail" />
+            <img src="../images/guitarfire.jpg" alt="Feu" class="thumbnail" />
+            <img src="../images/sauna-baril.jpg" alt="Lac" class="thumbnail" />
+            <img src="../images/family.jpg" alt="Famille" class="thumbnail" />
         </div>
-
+        
         <!-- Slideshow Modal -->
         <div id="slideshowModal" class="modal" style="display:none;">
             <span class="close">&times;</span>
@@ -97,14 +99,27 @@
             <img class="modal-content" id="img01">
             <div id="caption"></div>
         </div>
-
+        
+       <h1>Vidéo</h1>
+<div class="responsive-container">
+                    <iframe src="https://www.youtube.com/embed/uXznQ1e16pQ?si=INmLk3S0ccxRzmoK"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+        
+<div class="form-group">
+                    <a href="/#reserver">
+                        <button type="submit" class="confirm-button">Réservez Maintenant</button>
+                    </a>
+                </div>
 
 
         <!-- Modal Video -->
-        <div id="myModal" class="modal2">
+       <!-- <div id="myModal" class="modal2">
             <!-- Modal content -->
-            <div class="modal-content2">
-                <span class="close2">&times;</span> <!-- Changed class to 'close2' -->
+            <!-- <div class="modal-content2">
+                <span class="close2">&times;</span>
                 <div class="responsive-container">
                     <iframe src="https://www.youtube.com/embed/uXznQ1e16pQ?si=INmLk3S0ccxRzmoK"
                         title="YouTube video player" frameborder="0"
@@ -112,7 +127,7 @@
                         allowfullscreen></iframe>
                 </div>
             </div>
-        </div>
+        </div> -->
 
 
 
@@ -121,9 +136,9 @@
 
 
 
-    </div>
+   
 
-    <script>
+   <!-- <script>
         document.addEventListener('DOMContentLoaded', function () {
             var modal = document.getElementById("myModal");
             var triggerImg = document.getElementsByClassName("modal-trigger")[0];
@@ -151,7 +166,7 @@
 
 
 
-    </script>
+    </script> --> 
     <!-- Footer -->
     <footer class="footer">
 
@@ -159,7 +174,7 @@
         <div>
             <ul>
                 <li>Téléphone: (123)456-4789</li>
-                <li>Email: cc@camping-connecté.com</li>
+                <li>Email: cc@camping-connecte.com</li>
                 <h2>Social</h2>
                 <li><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                         <path fill="white"

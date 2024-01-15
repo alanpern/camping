@@ -199,6 +199,10 @@ input[type="text"] {
   height: auto;
 }
 
+button.confirm-button:hover {
+  background-color: #69b630;
+}
+
 .hr1 {
   border: none; /* Removes the default border */
   height: 0.5px; /* Sets the height of the HR to 1 pixel */
