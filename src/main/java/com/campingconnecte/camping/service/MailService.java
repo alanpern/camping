@@ -14,6 +14,7 @@ public class MailService {
 
     public void sendEmail(String to, String subject, String content) throws MailException {
         SimpleMailMessage message = new SimpleMailMessage();
+        message.setFrom("info@campconnecte.com");
         message.setTo(to);
         message.setSubject(subject);
         message.setText(content);
