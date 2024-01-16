@@ -124,6 +124,12 @@ input[type="text"] {
     padding: 5px; /* Ajoute un peu d'espace autour du texte */
 }
 
+.social-link, .social-link svg {
+    color: white;
+    fill: white; /* This will ensure SVG icons are white */
+}
+
+
 
 #longueurEquipement {
   width: 100%; /* Takes up the full width of its container */
