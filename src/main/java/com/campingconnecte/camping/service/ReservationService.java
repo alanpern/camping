@@ -13,6 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
+import java.time.Instant;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.util.List;
@@ -42,6 +43,47 @@ public class ReservationService {
     public Reservation getReservationById(int id) {
         return reservationRepository.findById(id).orElse(null);
     }
+    // ... Autres méthodes ...
+
+    // Vérifie si un site est présent dans la table des réservations
+  
+    public boolean siteInReservationTable(int siteId) {
+      return reservationRepository.existsBySiteId(siteId);      
+    }
+    
+    public boolean reservationEndDateIsInFuture(int siteId) {
+        // Récupérez toutes les réservations pour le site avec l'ID donné
+        List<Reservation> reservations = reservationRepository.findBySiteId(siteId);
+        // Obtenez la date actuelle
+        Date currentDate = new Date();
+        // Vérifiez si au moins une réservation a une date de fin dans le futur
+        for (Reservation reservation : reservations) {
+        	 if (reservation.getDateFin().after(currentDate)) {
+                 // Si au moins une réservation a une date de fin dans le futur, retournez true
+                 return true;     }
+        }
+        
+        return false; // Aucune réservation future trouvée, le site peut être supprimé
+    }
+
+
+    // Vérifie si la date de fin de réservation est dans le futur
+  /*  public boolean reservationEndDateIsInFuture(int siteId) {
+        // Récupérez la date de fin de réservation de la base de données
+        Reservation reservation = reservationRepository.findBySiteId(siteId);
+
+        if (reservation != null) {
+            Date endDate = reservation.getDateFin();
+            Date currentDate = new Date();
+
+            // Comparez la date de fin avec la date actuelle
+            return endDate.after(currentDate);
+        }
+
+        // Si la réservation n'est pas trouvée, retournez false
+        return false;
+    }*/
+    
     
     @Transactional
     public Reservation createReservationWithUser(String nom, String prenom, String email, Site site, Date dateDebut, Date dateFin, BigDecimal montantAvantTx, String status) {
@@ -60,7 +102,16 @@ public class ReservationService {
      // Calcul du nombre de nuits
         long nombreDeNuits = ChronoUnit.DAYS.between(dateDebut.toInstant(), dateFin.toInstant());
         reservation.setNombreDeNuits((int) nombreDeNuits);
-
+//Ajout pour utiliser admin
+     // Vérification que nombreDeNuits est supérieur ou égal à zéro
+        if (nombreDeNuits >= 0) {
+            reservation.setNombreDeNuits((int) nombreDeNuits);
+        } else {
+            // Gérer l'erreur ici, par exemple en lançant une exception ou en assignant une valeur par défaut
+            reservation.setNombreDeNuits(0); // Assigner une valeur par défaut
+        }
+        
+        
         // Calcul du montant total avant taxes
         BigDecimal coutReservation = BigDecimal.valueOf(nombreDeNuits).multiply(site.getPrixParNuit());
 

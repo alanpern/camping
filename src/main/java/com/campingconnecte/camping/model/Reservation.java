@@ -27,7 +27,9 @@ public class Reservation {
     @Column(name = "dateFin")
     private Date dateFin;
 
-    private int nombreDeNuits;
+    @Column(name = "nombreDeNuits")
+    private Integer nombreDeNuits; 
+   // private int nombreDeNuits;
     
     @Column(name = "montantAvantTx", precision = 10, scale = 2)
     private BigDecimal montantAvantTx;
@@ -35,8 +37,8 @@ public class Reservation {
     @Column(name = "prixTotal", precision = 10, scale = 2)
     private BigDecimal prixTotal;
 
-    //@Column(name = "nombreDeNuits")
-   // private long nombreDeNuits;
+  
+  // private long nombreDeNuits;
 
     @Column(name = "status")
     private String status;
@@ -83,6 +85,14 @@ public class Reservation {
         this.dateFin = dateFin;
     }
 
+    public Integer getNombreDeNuits() {
+        return nombreDeNuits;
+    }
+
+    public void setNombreDeNuits(Integer nombreDeNuits) {
+        this.nombreDeNuits = nombreDeNuits;
+    }
+    
     public BigDecimal getMontantAvantTx() {
         return montantAvantTx;
     }
@@ -99,14 +109,14 @@ public class Reservation {
         this.prixTotal = prixTotal;
     }
 
-    public int getNombreDeNuits() {
+    /*public int getNombreDeNuits() {
         return nombreDeNuits;
     }
 
     public void setNombreDeNuits(int nombreDeNuits) {
         this.nombreDeNuits = nombreDeNuits;
     }
-
+*/
     public String getStatus() {
         return status;
     }

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Modifier une Réservation</title>
+</head>
+<body>
+    <h1>Modifier une Réservation</h1>
+
+    <form th:action="@{/admin/reservations/update/{id}(id=${reservation.id})}" th:object="${reservation}" method="post">
+        <!-- Champ caché pour l'ID (nécessaire pour identifier quelle réservation mettre à jour) -->
+        <input type="hidden" th:field="*{id}" />
+
+        <!-- Champs de formulaire pour les attributs de la réservation -->
+        <!-- Exemple pour le champ userId -->
+        <div>
+            <label for="userId">User ID</label>
+            <input type="number" id="userId" th:field="*{userId}" />
+        </div>
+
+        <!-- Champ pour Site ID -->
+        <div>
+            <label for="siteId">Site ID</label>
+            <input type="number" id="siteId" th:field="*{siteId}" />
+        </div>
+
+        <!-- Champ pour Date de Début -->
+        <div>
+            <label for="dateDebut">Date de Début</label>
+            <input type="date" id="dateDebut" th:field="*{dateDebut}" />
+        </div>
+
+        <!-- Champ pour Date de Fin -->
+        <div>
+            <label for="dateFin">Date de Fin</label>
+            <input type="date" id="dateFin" th:field="*{dateFin}" />
+        </div>
+
+        <!-- Champ pour Nombre de Nuits -->
+        <div>
+            <label for="nombreDeNuits">Nombre de Nuits</label>
+            <input type="number" id="nombreDeNuits" th:field="*{nombreDeNuits}" />
+        </div>
+
+        <!-- Champ pour Prix Total -->
+        <div>
+            <label for="prixTotal">Prix Total</label>
+            <input type="text" id="prixTotal" th:field="*{prixTotal}" />
+        </div>
+
+        <!-- Champ pour Status -->
+        <div>
+            <label for="status">Status</label>
+            <input type="text" id="status" th:field="*{status}" />
+        </div>
+
+        <!-- Bouton pour soumettre le formulaire -->
+        <div>
+            <input type="submit" value="Mettre à jour"/>
+        </div>
+    </form>
+</body>
+</html>

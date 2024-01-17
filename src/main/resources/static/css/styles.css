@@ -88,6 +88,12 @@ h2 {
   background-size: cover;
 }
 
+.background-photo1 {
+  height: 300px;
+  background: url("../images/leve-soleil.jpg") no-repeat center center;
+  background-size: cover;
+}
+
 label,
 input[type="text"] {
   display: block;
@@ -273,15 +279,21 @@ button.confirm-button:hover {
 
 .background-photo6 {
   flex: 1;
-  height: auto;
+  
   background: url("../images/accomo.jpg") no-repeat center center;
   background-size: cover;
 }
 
 .background-photo7 {
-  flex: 1;
-  height: auto;
+  flex: 1;  
   background: url("../images/reglements.bmp") no-repeat center center;
+  background-size: cover;
+}
+
+.background-photo8 {
+  flex: 1;
+  height: 612px;
+  background: url("../images/bientot.jpg") no-repeat center center;
   background-size: cover;
 }
 

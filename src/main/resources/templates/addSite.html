@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ajouter un Site</title>
+</head>
+<body>
+    <h1>Ajouter un Site</h1>
+    <form th:action="@{/sites/add}" th:object="${site}" method="post">
+        <input type="text" th:field="*{numero}" placeholder="Numéro du site" />
+         <select th:field="*{services}" id="services" name="services">
+        <option value="Sans Service">Sans Service</option>
+        <option value="Eau seulement">Eau seulement</option>
+        <option value="Eau et électricité">Eau et électricité</option>
+        <option value="Eau-électricité-égouts">Eau-électricité-égouts</option>
+    </select>
+     <!--   <input type="text" th:field="*{services}" placeholder="Services" />-->
+        <input type="number" th:field="*{longueurMax}" placeholder="Longueur Maximale" />
+        <input type="number" th:field="*{prixParNuit}" placeholder="Prix Par Nuit" step="0.01" />
+        <button type="submit">Ajouter</button>
+    </form>
+</body>
+</html>

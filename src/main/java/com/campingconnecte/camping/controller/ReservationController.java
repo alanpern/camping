@@ -54,6 +54,8 @@ public class ReservationController {
         // Ajoutez les réservations à l'objet Model pour les afficher dans la vue correspondante
         model.addAttribute("reservations", reservations);
         return "listeReservations"; // Nom de la vue Thymeleaf (listeReservations.html)
+        //return "administrateur"; 
+    
     }    
   //afficher les dates et détails du site a réserver
     @GetMapping("/reservation")

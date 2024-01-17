@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Modifier un Site</title>
+</head>
+<body>
+    <h1>Modifier un Site</h1>
+    <form th:action="@{/sites/update/{id}(id=${site.id})}" th:object="${site}" method="post">
+        <input type="hidden" th:field="*{id}" />
+        <input type="text" th:field="*{numero}" placeholder="Numéro du site" />
+        <input type="text" th:field="*{services}" placeholder="Services" />
+<input type="number" th:field="*{longueurMax}" placeholder="Longueur Maximale" />
+<input type="number" th:field="*{prixParNuit}" placeholder="Prix Par Nuit" step="0.01" />
+<button type="submit">Modifier</button>
+</form>
+
+</body>
+</html>

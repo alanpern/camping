@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>admAccueil</title>
+    <link rel="stylesheet" href="css/styles.css"> <!-- Replace with your CSS file path -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  
+</head>
+<body>
+    <h2> Administrateur</h2>
+    <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Accueil Administrateur</title>
+    <!-- Inclure vos liens vers les feuilles de style CSS ici -->
+</head>
+<body>
+    <h1>Tableau de Bord Administrateur</h1>
+    <nav>
+        <ul>
+           
+            <li><a th:href="@{/sites}">Accéder à la liste des sites</a></li>
+            <li><a th:href="@{/reservations}">Accéder à la gestion des réservations</a></li>
+			<li><a th:href="@{/users}">Accéder à la gestion des utilisateurs</a></li>
+
+        </ul>
+    </nav>
+</body>
+</html>

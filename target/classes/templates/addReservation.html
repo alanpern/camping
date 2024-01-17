@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Ajouter une Réservation</title>
+</head>
+<body>
+    <h1>Ajouter une Réservation</h1>
+
+    <form th:action="@{/admin/reservations/add}" th:object="${reservation}" method="post">
+        <!-- Champ pour l'ID de l'Utilisateur -->
+        <div>
+            <label for="userId">ID de l'Utilisateur</label>
+            <input type="number" id="userId" th:field="*{userId}" required />
+        </div>
+
+        <!-- Champ pour l'ID du Site -->
+        <div>
+            <label for="siteId">ID du Site</label>
+            <input type="number" id="siteId" th:field="*{siteId}" required />
+        </div>
+
+        <!-- Champ pour la Date de Début -->
+        <div>
+            <label for="dateDebut">Date de Début</label>
+            <input type="date" id="dateDebut" th:field="*{dateDebut}" required />
+        </div>
+
+        <!-- Champ pour la Date de Fin -->
+        <div>
+            <label for="dateFin">Date de Fin</label>
+            <input type="date" id="dateFin" th:field="*{dateFin}" required />
+        </div>
+
+        <!-- Champ pour le Nombre de Nuits -->
+        <div>
+            <label for="nombreDeNuits">Nombre de Nuits</label>
+            <input type="number" id="nombreDeNuits" th:field="*{nombreDeNuits}" required />
+        </div>
+
+        <!-- Champ pour le Prix Total -->
+        <div>
+            <label for="prixTotal">Prix Total</label>
+            <input type="text" id="prixTotal" th:field="*{prixTotal}" required />
+</div>
+
+    <!-- Champ pour le Statut -->
+    <div>
+        <label for="status">Statut</label>
+        <select id="status" th:field="*{status}" required>
+            <option value="Confirmée">Confirmée</option>
+            <option value="Annulée">Payée</option>
+            <!-- Ajoutez d'autres statuts selon vos besoins -->
+        </select>
+    </div>
+
+    <!-- Bouton pour soumettre le formulaire -->
+    <div>
+        <input type="submit" value="Ajouter la réservation"/>
+    </div>
+</form>
+</body>
+</html>

@@ -2,6 +2,7 @@ package com.campingconnecte.camping.controller;
 import com.campingconnecte.camping.model.User;
 
 
+
 import com.campingconnecte.camping.model.Reservation;
 import com.campingconnecte.camping.model.Site;
 import com.campingconnecte.camping.repository.UserRepository;
@@ -113,8 +114,12 @@ public class UserController {
             logger.error("Erreur lors de la sauvegarde de la réservation");
             return "redirect:/error";
         }
-        // Ajouter des informations au modèle si nécessaire
-      //  model.addAttribute("reservation", reservation);
+        
+     // Mettre à jour le statut de la réservation à "Confirmé"
+        savedReservation.setStatus("Confirmé");
+        reservationService.saveReservation(savedReservation); // Mettre à jour la réservation dans la base de données
+
+      
      // Ajouter les informations au modèle pour la page de confirmation
         model.addAttribute("reservation", savedReservation);
         model.addAttribute("site", site); // Ajouter l'objet Site au modèle
@@ -123,7 +128,7 @@ public class UserController {
         model.addAttribute("nombreDeNuits", nombreDeNuits);
         model.addAttribute("prixTotal", prixTotal);
 
-        logger.info("Réservation créée avec succès : {}", savedReservation);
+        logger.info("Réservation créée avec succès et statut mis à jour à 'Confirmé' : {}", savedReservation);
         return "confirmation"; // Rediriger vers la page de confirmation
     }   
 }
