@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>listeReservations.html</title>
+    <title>listeReservation.html</title>
 </head>
 <body>
     <h1>Liste des Réservations</h1>
@@ -24,8 +24,8 @@
             <!-- Utilisation de Thymeleaf pour itérer sur la liste de réservations -->
             <tr th:each="reservation : ${reservations}">
                 <td th:text="${reservation.id}">1</td>
-                <td th:text="${reservation.user.Id}">1</td>
-                <td th:text="${reservation.site.Id}">1</td>
+                <td th:text="${reservation.userId}">1</td>
+                <td th:text="${reservation.siteId}">1</td>
                 <td th:text="${reservation.dateDebut}">2022-01-01</td>
                 <td th:text="${reservation.dateFin}">2022-01-05</td>
                 <td th:text="${reservation.nombreDeNuits}">4</td>

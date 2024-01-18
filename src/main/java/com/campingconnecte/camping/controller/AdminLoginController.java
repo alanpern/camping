@@ -25,6 +25,12 @@ public class AdminLoginController {
     public String adminLoginPage() {
         return "adminLogin"; // Assurez-vous que "adminLogin" est le nom de votre modèle Thymeleaf
     }
+	
+	@GetMapping("/admAccueil")
+    public String showAdmAccueilPage() {
+        // logique éventuelle
+        return "admAccueil";
+    }
 
     @Autowired
     private AdminRepository adminRepository; // Injectez votre repository pour la table admin
@@ -42,6 +48,7 @@ public class AdminLoginController {
                               
               // Ajoutez d'autres données nécessaires
            //	return "dataDisplay";
+            	
             	return "admAccueil";
 
             }

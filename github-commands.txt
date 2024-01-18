@@ -1,5 +1,5 @@
 git status
-git add . or git add [file]
+git add . or git add path/to/yourfile
 git commit -m "captcha add-on"
 git push origin master
 
