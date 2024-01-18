@@ -54,6 +54,11 @@ body {
   margin-bottom: 5px;
 }
 
+.readonly-input {
+    background-color: #e0e0e0; /* Gray background */
+    color: #6c757d; /* Dimmed text color */
+}
+
 input[type="text"],
 input[type="email"],
 input[type="adresse"],

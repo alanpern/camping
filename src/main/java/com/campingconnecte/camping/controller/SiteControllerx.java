@@ -30,9 +30,21 @@ public class SiteController {
     public SiteController(SiteService siteService, ReservationService reservationService) {
         this.siteService = siteService;
         this.reservationService = reservationService; // Injectez ReservationService
- 
+   // public SiteController(SiteService siteService) {
+    //    this.siteService = siteService;
     }
-  
+
+  /*  @GetMapping
+    public String listerSites(Model model) {
+        // Récupérez la liste des sites depuis le service
+        List<Site> sites = siteService.getAllSites();
+
+        // Ajoutez les sites à l'objet Model pour les afficher dans la vue correspondante
+        model.addAttribute("sites", sites);
+
+        return "listeSites"; // Nom de la vue Thymeleaf (listeSites.html)
+    }*/
+    
  // Afficher la liste des sites
     @GetMapping
     public String listSites(Model model) {
@@ -105,6 +117,7 @@ return "listeSites"; // Vue Thymeleaf pour la liste des sites
         // Redirigez l'utilisateur vers une page de confirmation ou une autre vue.
         return "/sites";
     }
+
 } 
     
 

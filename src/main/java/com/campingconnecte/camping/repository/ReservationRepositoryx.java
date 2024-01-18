@@ -1,13 +1,11 @@
 package com.campingconnecte.camping.repository;
 
-import java.sql.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import com.campingconnecte.camping.model.Reservation;
 import com.campingconnecte.camping.model.Site;
-import com.campingconnecte.camping.model.User;
 
 @Repository
 public interface ReservationRepository extends JpaRepository<Reservation, Integer> {
@@ -17,8 +15,6 @@ public interface ReservationRepository extends JpaRepository<Reservation, Intege
 	List<Reservation> findBySiteId(int siteId);
 
 	  boolean existsBySite(Site site);
-	 // Reservation findBySiteId(int siteId); 
-	  boolean existsBySiteId(int siteId); 
-	  
-	  boolean existsByUserAndDateFinAfter(User user, Date currentDate);
+	 // Reservation findBySiteId(int siteId); // Ajoutez cette méthode
+	  boolean existsBySiteId(int siteId); // Ajoutez cette méthode
 }

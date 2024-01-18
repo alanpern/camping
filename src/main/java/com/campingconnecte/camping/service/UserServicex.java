@@ -1,27 +1,18 @@
 package com.campingconnecte.camping.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.stereotype.Service;
 import com.campingconnecte.camping.model.User;
-import com.campingconnecte.camping.repository.ReservationRepository;
 import com.campingconnecte.camping.repository.UserRepository;
 
 import jakarta.transaction.Transactional;
-import java.sql.Date;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserService {
     private final UserRepository userRepository;
 
-    
-    @Autowired
-    private ReservationRepository reservationRepository;
-
-   
     @Autowired
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -46,17 +37,6 @@ public class UserService {
     public void deleteUser(int id) {
         userRepository.deleteById(id);
     }
-    
-    public boolean userHasFutureReservations(int userId) {
-        Optional<User> user = userRepository.findById(userId);
-        if (user.isPresent()) {
-            Date currentDate = new Date(System.currentTimeMillis()); // Convertir java.util.Date en java.sql.Date
-            return reservationRepository.existsByUserAndDateFinAfter(user.get(), currentDate);
-        } else {
-            return false;
-        }
-    }
- 
     
     @Transactional
     public User createUser(String nom, String prenom, String email, String telephone) {

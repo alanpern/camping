@@ -15,14 +15,10 @@ import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
-import java.util.List;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 @Controller
@@ -37,131 +33,7 @@ public class UserController {
     private ReservationService reservationService;
     @Autowired
     private SiteService siteService;
-    @Autowired
-    private UserService userService;
 
-    
-    //Méthode pour gérer l'affichage de la liste des utilisateurs.
-    @GetMapping("/users")
-    public String listUsers(Model model) {
-        List<User> users = userService.getAllUsers();
-        model.addAttribute("users", users);
-        model.addAttribute("user", new User()); 
-        return "users"; // Nom du template (user.html)
-    }
-    //18h00
-    @PostMapping("/addUser")
-    public String addUser(@ModelAttribute User newUser, RedirectAttributes redirectAttributes) {
-        try {
-            userRepository.save(newUser);
-            logger.info("Nouvel utilisateur ajouté : {}", newUser);
-            redirectAttributes.addFlashAttribute("successMessage", "Utilisateur ajouté avec succès.");
-        } catch (Exception e) {
-            logger.error("Erreur lors de l'ajout de l'utilisateur : {}", e.getMessage());
-            redirectAttributes.addFlashAttribute("errorMessage", "Erreur lors de l'ajout de l'utilisateur.");
-        }
-        return "redirect:/users";
-    }
-    
-    //18h30 
-    @GetMapping("/editUser/{id}")
-    public String showEditUserForm(@PathVariable("id") int userId, Model model) {
-        User userToEdit = userService.getUserById(userId);
-        if (userToEdit != null) {
-            model.addAttribute("user", userToEdit);
-            return "editUser"; // Nom du template pour le formulaire de modification (editUser.html)
-        } else {
-            // Gérer le cas où l'utilisateur n'est pas trouvé (par exemple, redirection vers une page d'erreur ou la liste des utilisateurs)
-            return "redirect:/users";
-        }
-    }
-   
-    
-    //updateUsers pour la liste des users
-    @PostMapping("/updateUsers")
-    public String updateUsers(@ModelAttribute User user, RedirectAttributes redirectAttributes) {
-        try {
-            userRepository.save(user);
-            logger.info("Utilisateur mis à jour : {}", user);
-            redirectAttributes.addFlashAttribute("successMessage", "Utilisateur mis à jour avec succès.");
-        } catch (Exception e) {
-            logger.error("Erreur lors de la mise à jour de l'utilisateur : {}", e.getMessage());
-            redirectAttributes.addFlashAttribute("errorMessage", "Erreur lors de la mise à jour de l'utilisateur.");
-        }
-        return "redirect:/users";
-    }
-
-    
-    @GetMapping("/addUser")
-    public String showAddUserForm(Model model) {
-        model.addAttribute("user", new User());
-        return "addUsers"; // Le nom du fichier HTML est "addUsers.html"
-    }
-
- 
-    
-    
-  /*  @GetMapping("/showAddUserForm")
-    public String showAddUserForm(Model model) {
-        model.addAttribute("user", new User());
-        return "addUsers"; // Le nom du fichier HTML doit être "addUsers.html" dans le dossier templates
-    }*/
-
-
-    @PostMapping("/updateUserInfo")
-    public String updateUserInfo(@ModelAttribute User user, RedirectAttributes redirectAttributes) {
-        User savedUser = userRepository.findByNomAndPrenomAndEmail(user.getNom(), user.getPrenom(), user.getEmail());
-        if (savedUser != null) {
-            // Mise à jour des informations existantes de l'utilisateur
-            savedUser.setAdresse(user.getAdresse());
-            savedUser.setVille(user.getVille());
-            savedUser.setPays(user.getPays());
-            savedUser.setEmail(user.getEmail());
-            savedUser.setTelephone(user.getTelephone());
-            // Ajoutez d'autres champs à mettre à jour si nécessaire
-        } else {
-            // Création d'un nouvel utilisateur si non existant
-            savedUser = user;
-        }
-        userRepository.save(savedUser);
-        logger.info("Utilisateur mis à jour : {}", savedUser);
-        return "redirect:/users"; // Redirigez vers la liste des utilisateurs ou la page appropriée
-    }
-        
-  /*  @GetMapping("/addUser")
-    public String showAddUserForm(Model model) {
-        model.addAttribute("user", new User());
-        return "users"; // ou le nom de votre page contenant le formulaire
-    }*/
-    
-    
-    @GetMapping("/deleteUser/{id}")
-   // public String deleteUser(@PathVariable("id") int userId, RedirectAttributes redirectAttributes) {
-    public String deleteUser(@RequestParam("id") int userId, RedirectAttributes redirectAttributes) {  
-    if (!userService.userHasFutureReservations(userId)) {
-            userService.deleteUser(userId);
-            logger.info("Utilisateur avec l'ID {} supprimé", userId);
-            redirectAttributes.addFlashAttribute("successMessage", "Utilisateur supprimé avec succès.");
-        } else {
-            logger.info("L'utilisateur avec l'ID {} a des réservations futures et ne peut pas être supprimé", userId);
-            redirectAttributes.addFlashAttribute("errorMessage", "L'utilisateur ne peut pas être supprimé car il a des réservations futures.");
-        }
-        return "redirect:/users";
-    }
-
-  /*  @GetMapping("/deleteUser/{id}")
-    public String deleteUser(@PathVariable("id") int userId, Model model) {
-        if (!userService.userHasFutureReservations(userId)) {
-            userService.deleteUser(userId);
-            logger.info("Utilisateur avec l'ID {} supprimé", userId);
-        } else {
-            logger.info("L'utilisateur avec l'ID {} a des réservations futures et ne peut pas être supprimé", userId);
-            // Gérer la situation où l'utilisateur ne peut pas être supprimé
-            // Par exemple, ajouter un message d'erreur au modèle
-        }
-        return "redirect:/users";
-    }*/
-    
     // Méthode pour mettre à jour les informations de l'utilisateur et créer/mettre à jour une réservation
     @PostMapping("/updateUser")
     public String updateUser(@ModelAttribute User user, 
@@ -200,8 +72,6 @@ public class UserController {
             // Gestion d'erreur si le site n'existe pas
             return "redirect:/error";
         }
-        
-        
         // Création ou mise à jour de la réservation
         Reservation reservation = new Reservation();
         

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Liste des utilisateurs</title>
+     <link rel="stylesheet" href="/css/form-styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+</head>
+<body>
+<a th:href="@{/addUser}">Ajouter un utilisateur</a>
+
+
+</div>
+	<table>
+    <tr>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Adresse</th>
+        <th>Ville</th>
+        <th>Pays</th>
+        <th>Email</th>
+        <th>Téléphone</th>
+    </tr>
+    <th:block th:each="user : ${users}">
+        <tr>
+            <td th:text="${user.nom}"></td>
+            <td th:text="${user.prenom}"></td>
+            <td th:text="${user.adresse}"></td>
+            <td th:text="${user.ville}"></td>
+            <td th:text="${user.pays}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.telephone}"></td>
+            <td>
+               <!-- <a th:href="@{/editUser(id=${user.id})}">Modifier</a>-->
+                <a th:href="@{/editUser/{id}(id=${user.id})}">Modifier</a>
+
+            </td>
+        </tr>
+    </th:block>
+</table>
+
+
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Modifier l'utilisateur</title>
+    <link rel="stylesheet" href="/css/form-styles.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="/js/script.js"></script>
+</head>
+<body>
+    <h1>Modifier l'Utilisateur</h1>    
+    
+    <!-- Formulaire de modification d'utilisateur -->
+    <form th:action="@{/updateUsers}" th:object="${user}" method="post">
+
+        <!-- Champs cachés pour Nom et Prénom -->
+        <input type="hidden" th:field="*{nom}">
+        <input type="hidden" th:field="*{prenom}">
+
+        <!-- Champ Adresse -->
+        <div class="form-group">
+            <label for="adresse">Adresse:</label>
+            <input type="text" id="adresse" th:field="*{adresse}" required>
+        </div>
+
+        <div class="form-row">
+            <!-- Champ Ville -->
+            <div class="form-group">
+                <label for="ville">Ville:</label>
+                <input type="text" id="ville" th:field="*{ville}" required>
+            </div>
+
+            <!-- Champ Pays -->
+            <div class="form-group">
+                <label for="pays">Pays:</label>
+                <input type="text" id="pays" th:field="*{pays}">
+            </div>
+        </div>
+
+        <div class="form-row">
+            <!-- Champ Email -->
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" th:field="*{email}" required>
+            </div>
+
+            <!-- Champ Téléphone -->
+            <div class="form-group">
+                <label for="telephone">Téléphone:</label>
+                <input type="tel" id="telephone" th:field="*{telephone}" required>
+            </div>
+        </div>
+
+        <!-- Champ caché pour l'ID -->
+        <input type="hidden" th:field="*{id}">
+
+        <!-- Bouton Soumettre -->
+        <div class="form-group">
+            <button type="submit">Mettre à jour</button>
+        </div>
+    </form>
+</body>
+</html>
